@@ -132,7 +132,7 @@
                     +44 7599 476514
                   </a>
                 </li>
-                <a className="btn btn-primary mx-2" href="/" role="button">
+                <a className="btn btn-black mx-2"  style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7" , color: props.mode === "dark" ? "white" : "white",}} href="/" role="button">
                   Contact Us
                 </a>
                 <div className={`form-check form-switch text-${props.mode === 'light'?'dark' : 'light'} mx-5`}>
