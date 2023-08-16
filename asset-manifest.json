@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PronetizensTask/static/css/main.1bb6d5bb.css",
+    "main.js": "/PronetizensTask/static/js/main.d1a94781.js",
+    "static/js/787.28cb0dcd.chunk.js": "/PronetizensTask/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/PronetizensTask/index.html",
+    "main.1bb6d5bb.css.map": "/PronetizensTask/static/css/main.1bb6d5bb.css.map",
+    "main.d1a94781.js.map": "/PronetizensTask/static/js/main.d1a94781.js.map",
+    "787.28cb0dcd.chunk.js.map": "/PronetizensTask/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1bb6d5bb.css",
+    "static/js/main.d1a94781.js"
+  ]
+}
