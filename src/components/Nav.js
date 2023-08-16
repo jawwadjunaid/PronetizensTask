@@ -1,14 +1,15 @@
   import React from "react";
   import PropTypes from "prop-types";
+  import { Link } from 'react-router-dom';
 
   export default function nav(props) {
     return (
       <div>
         <nav className={`navbar navbar-expand-lg  navbar-${props.mode} bg-${props.mode}`}>
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" to="/">
               {props.title}
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -73,14 +74,14 @@
                   </ul>
                 </li>
                 <li className="nav-item mx-2">
-                  <a className="nav-link" href="/">
-                    Clients
-                  </a>
+                  <Link className="nav-link" to="/">
+                    Home
+                  </Link>
                 </li>
                 <li className="nav-item mx-2">
-                  <a className="nav-link" href="/">
-                    Company
-                  </a>
+                  <Link className="nav-link" to="/about">
+                    About
+                  </Link>
                 </li>
                 <li className="nav-item mx-2">
                   <a className="nav-link" href="/">
@@ -132,7 +133,7 @@
                     +44 7599 476514
                   </a>
                 </li>
-                <a className="btn btn-black mx-2"  style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7" , color: props.mode === "dark" ? "white" : "white",}} href="/" role="button">
+                <a className="btn btn-black mx-2"  style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7" , color: props.mode === "dark" ? "white" : "white",border: "1px solid white"}} href="/" role="button">
                   Contact Us
                 </a>
                 <div className={`form-check form-switch text-${props.mode === 'light'?'dark' : 'light'} mx-5`}>

@@ -4,6 +4,7 @@ export default function TextForm(props) {
   const handleOnChange = (event) => {
     // console.log("On Changed")
     setText(event.target.value);
+    
   };
 
   const [text, setText] = useState("");
@@ -11,24 +12,29 @@ export default function TextForm(props) {
     //console.log("Uppercase was Clicked" +  text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to uppercase!", "success");
   };
 
   const handleLowClick = () => {
     const lowText = text.toLowerCase();
     setText(lowText);
+    props.showAlert("Converted to lowercase!", "success");
   };
   const handleClearText = () => {
     let lowText = "";
     setText(lowText);
+    props.showAlert("Text Cleared!", "success");
   };
   const handleCopyText = () => {
     let text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to Clipboard!", "success");
   };
   const removeExtraSpace = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("Extra spaces removed!", "success");
   };
   return (
     <>
@@ -50,19 +56,19 @@ export default function TextForm(props) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7"}} onClick={handleUpClick}>
+        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7" , border: "1px solid white"}} onClick={handleUpClick}>
           Convert to uppercase
         </button>
-        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7"}} onClick={handleLowClick}>
+        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={handleLowClick}>
           Convert to Lowercase
         </button>
-        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7"}} onClick={handleClearText}>
+        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={handleClearText}>
           Clear Text
         </button>
-        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7"}} onClick={handleCopyText}>
+        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={handleCopyText}>
           Copy text
         </button>
-        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7"}} onClick={removeExtraSpace}>
+        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={removeExtraSpace}>
           Remove extra space
         </button>
       </div>
