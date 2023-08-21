@@ -37,6 +37,7 @@ function App() {
       showAlert("Light mode has been enabled", "success");
     }
   };
+  
   return (
     <>
     <BrowserRouter>
@@ -46,13 +47,13 @@ function App() {
         
       <Routes>
         
-          <Route exact path="/about" element={<About/>}>
+          <Route exact path="/about" element={<About mode={mode} />}>
             
           </Route>
           
           <Route exact path="/" element={<TextForm
                 showAlert={showAlert}
-                heading="Enter the text here..!"
+                heading="TextUtils - Word Counter, Charater Counter, Remove Extra Spaces"
                 mode={mode}
               />}>
           

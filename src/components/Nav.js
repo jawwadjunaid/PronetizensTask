@@ -1,17 +1,27 @@
-  import React from "react";
-  import PropTypes from "prop-types";
-  import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import Popup from "../components/Popup";
 
-  export default function nav(props) {
-    return (
+export default function Nav(props) {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handlePopupToggle = () => {
+    setShowPopup(!showPopup);
+  };
+
+  return (
+    <>
       <div>
-        <nav className={`navbar navbar-expand-lg  navbar-${props.mode} bg-${props.mode}`}>
+        <nav
+          className={`navbar navbar-expand-lg  navbar-${props.mode} bg-${props.mode}`}
+        >
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">
               {props.title}
             </Link>
             <button
-              className="navbar-toggler"
+              className="navbar-toggler "
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
@@ -23,7 +33,7 @@
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ml-auto ">
-                <li className="nav-item dropdown mx-2">
+                {/* <li className="nav-item dropdown mx-2">
                   <a
                     className="nav-link dropdown-toggle"
                     hover="mouse"
@@ -72,7 +82,7 @@
                       </a>
                     </li>
                   </ul>
-                </li>
+                </li> */}
                 <li className="nav-item mx-2">
                   <Link className="nav-link" to="/">
                     Home
@@ -80,10 +90,10 @@
                 </li>
                 <li className="nav-item mx-2">
                   <Link className="nav-link" to="/about">
-                    About
+                    about
                   </Link>
                 </li>
-                <li className="nav-item mx-2">
+                {/* <li className="nav-item mx-2">
                   <a className="nav-link" href="/">
                     Podcasts
                   </a>
@@ -92,8 +102,8 @@
                   <a className="nav-link" href="/">
                     Careers
                   </a>
-                </li>
-                <li className="nav-item dropdown mx-2">
+                </li> */}
+                {/* <li className="nav-item dropdown mx-2">
                   <a
                     className="nav-link dropdown-toggle"
                     href="/"
@@ -127,27 +137,55 @@
                       </a>
                     </li>
                   </ul>
-                </li>
-                <li className="nav-item mx-2">
-                  <a className="nav-link" href="/">
+                </li> */}
+                {/* <li className="nav-item mx-2" >
+                  <a className="nav-link-underline-primary" style={{color: 'blue', }} href="/">
                     +44 7599 476514
                   </a>
-                </li>
-                <a className="btn btn-black mx-2"  style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7" , color: props.mode === "dark" ? "white" : "white",border: "1px solid white"}} href="/" role="button">
+                </li> */}
+                <a
+                  className="btn btn-black mx-2"
+                  onClick={handlePopupToggle}
+                  style={{
+                    backgroundColor:
+                      props.mode === "dark" ? "#212529" : "#0b5ed7",
+                    color: props.mode === "dark" ? "white" : "white",
+                    border: "1px solid white",
+                  }}
+                  href="#"
+                  role="button"
+                >
                   Contact Us
                 </a>
-                <div className={`form-check form-switch text-${props.mode === 'light'?'dark' : 'light'} mx-5`}>
-    <input className="form-check-input" onClick={props.toggleMode}type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-    <label className="form-check-label" htmlFor="flexSwitchCheckDefault">DarkMode</label>
-  </div>
+                <Popup show={showPopup} onClose={handlePopupToggle}></Popup>
+                <div
+                  className={`form-check form-switch text-${
+                    props.mode === "light" ? "dark" : "light"
+                  } mx-5`}
+                >
+                  <input
+                    className="form-check-input"
+                    onClick={props.toggleMode}
+                    type="checkbox"
+                    role="switch"
+                    id="flexSwitchCheckDefault"
+                  />
+                  <label
+                    className="form-check-label"
+                    htmlFor="flexSwitchCheckDefault"
+                  >
+                    DarkMode
+                  </label>
+                </div>
               </ul>
             </div>
           </div>
         </nav>
       </div>
-    );
-  }
+    </>
+  );
+}
 
-  nav.propTypes = {
-    title: PropTypes.string,
-  };
+Nav.propTypes = {
+  title: PropTypes.string,
+};

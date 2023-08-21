@@ -42,7 +42,7 @@ export default function TextForm(props) {
         className="container"
         style={{ color: props.mode === "dark" ? "white" : "black" }}
       >
-        <h1>{props.heading}</h1>
+        <h2 className="mb-4">{props.heading}</h2>
         <div className="mb-4">
           <textarea
             className="form-control"
@@ -56,19 +56,19 @@ export default function TextForm(props) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7" , border: "1px solid white"}} onClick={handleUpClick}>
+        <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7" , border: "1px solid white"}} onClick={handleUpClick}>
           Convert to uppercase
         </button>
-        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={handleLowClick}>
+        <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={handleLowClick}>
           Convert to Lowercase
         </button>
-        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={handleClearText}>
+        <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={handleClearText}>
           Clear Text
         </button>
-        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={handleCopyText}>
+        <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={handleCopyText}>
           Copy text
         </button>
-        <button className="btn btn-dark mx-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={removeExtraSpace}>
+        <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" style={{backgroundColor:props.mode ==="dark" ? "black" : "#0b5ed7", border: "1px solid white"}} onClick={removeExtraSpace}>
           Remove extra space
         </button>
       </div>
@@ -80,9 +80,9 @@ export default function TextForm(props) {
         <h1>Your Text Summary</h1>
         <p>
           {" "}
-          {text.split(" ").length} words and {text.length} characters
+          {text.split(" ").filter((element)=>{return element.length!== 0}).length} word and {text.length} characters
         </p>
-        <p> {0.008 * text.split(" ").length} Minutes to Read</p>
+        <p> {0.008 * text.split(" ").filter((element)=>{return element.length!== 0}).length} Minutes to Read</p>
         <p>{text.split(" ").join("").length} Character Count Without Spacing</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter something to the Textbox above to preview it here..."}</p>
